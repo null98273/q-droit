@@ -10,14 +10,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --bg: #12141a;
-            --card: #1c1f2a;
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --primary: #a78bff;
-            --accent: #7c3aed;
-            --highlight: #c4b5fd;
-            --border: #2d3748;
+            --bg: #ffffff;
+            --card: #f8f9fa;
+            --text: #12141a;
+            --text-muted: #495057;
+            --border: #ced4da;
+            --header-overlay: rgba(255, 255, 255, 0.88);
         }
         body {
             background-color: var(--bg);
@@ -35,14 +33,14 @@
             padding: 65px 20px;
             text-align: center;
             margin-bottom: 50px;
-            border-bottom: 1px solid rgba(167, 139, 255, 0.25);
+            border-bottom: 1px solid #dee2e6;
         }
 
         header::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(30, 27, 75, 0.78), rgba(30, 41, 59, 0.68));
+            background: var(--header-overlay);
             backdrop-filter: blur(2px);
             z-index: 0;
         }
@@ -55,53 +53,93 @@
         h1 {
             font-size: 2.7rem;
             font-weight: 700;
-            color: white;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            color: #000;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
             margin-bottom: 8px;
         }
         .subtitle {
             font-size: 1.2rem;
-            color: #e0d6ff;
+            color: #212529;
             font-weight: 300;
         }
 
-        .section-title { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 40px; font-weight: 600; }
-        .card { background-color: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 24px; transition: all 0.35s ease; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(167, 139, 255, 0.15); border-color: var(--primary); }
+        .section-title { 
+            color: #000; 
+            border-bottom: 3px solid #000; 
+            padding-bottom: 10px; 
+            margin-bottom: 40px; 
+            font-weight: 600; 
+        }
+        .card { 
+            background-color: var(--card); 
+            border: 1px solid var(--border); 
+            border-radius: 14px; 
+            overflow: hidden; 
+            margin-bottom: 24px; 
+            transition: all 0.35s ease; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+            border-color: #000; 
+        }
         .card-header {
-            background: linear-gradient(to right, rgba(167, 139, 255, 0.08), transparent);
+            background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
             border-bottom: 1px solid var(--border);
             padding: 1.4rem 1.8rem;
             cursor: pointer;
             font-weight: 600;
             font-size: 1.15rem;
-            color: #ffffff;
+            color: #000;
         }
-        .card-header:hover { background: linear-gradient(to right, rgba(167, 139, 255, 0.15), transparent); }
-        .card-header i { color: var(--primary); transition: transform 0.3s ease; }
-        .card-header[aria-expanded="false"] i { transform: rotate(-90deg); }
+        .card-header:hover { 
+            background: linear-gradient(to right, rgba(0,0,0,0.1), transparent); 
+        }
+        .card-header i { 
+            color: #000; 
+            transition: transform 0.3s ease; 
+        }
+        .card-header[aria-expanded="false"] i { 
+            transform: rotate(-90deg); 
+        }
         .card-body { padding: 1.5rem 1.8rem; }
         .list-group-item {
             background: transparent;
             border: none;
-            border-bottom: 1px dashed rgba(148, 163, 184, 0.3);
+            border-bottom: 1px dashed #adb5bd;
             padding: 0.9rem 0;
             color: var(--text-muted);
         }
         .list-group-item:last-child { border-bottom: none; }
-        .list-group-item a { color: var(--highlight); text-decoration: none; font-weight: 500; transition: all 0.25s; }
-        .list-group-item a:hover { color: white; text-decoration: underline; }
-        .list-group-item i { color: #e879f9; margin-right: 10px; }
+        .list-group-item a { 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 500; 
+            transition: all 0.25s; 
+        }
+        .list-group-item a:hover { 
+            color: #000; 
+            text-decoration: underline; 
+        }
+        .list-group-item i { 
+            color: #212529; 
+            margin-right: 10px; 
+        }
         footer {
             margin-top: 120px;
             padding: 50px 20px;
-            background: linear-gradient(to top, #0f1017, #1a1d29);
+            background: #f1f3f5;
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
+            color: #495057;
             text-align: center;
         }
-        footer a { color: var(--primary); font-weight: 600; }
-        footer a:hover { color: white; }
+        footer a { 
+            color: #000; 
+            font-weight: 600; 
+            text-decoration: underline;
+        }
+        footer a:hover { color: #212529; }
         .container { max-width: 1000px; }
     </style>
 </head>
@@ -122,24 +160,24 @@
             <div class="card">
                 <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#collapse1">
                     <i class="fas fa-chevron-down me-3"></i>
-                   📁  Introduction à l’étude du droit
+                    Introduction à l’étude du droit
                 </div>
                 <div id="collapse1" class="collapse" data-bs-parent="#semestre1">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Syllabus.docx" target="_blank"><i class="fas fa-file-word"></i> Syllabus.docx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 1 & 2.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 1 & 2.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 3.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 3 & 4.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 5.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 5.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 6.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 6.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 7.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 7.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 8.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 8.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 9.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 9.pptx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Dernière Séance.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Dernière Séance.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 1 & 2.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 1 & 2.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 3.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 3 & 4.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 5.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 5.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 6.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 6.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 7.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 7.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 8.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 8.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Séance 9.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Séance 9.pptx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Dernière Séance.pptx" target="_blank"><i class="fas fa-file-powerpoint"></i> Dernière Séance.pptx</a></li>
                             <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/TD-1.pdf" target="_blank"><i class="fas fa-file-pdf"></i> TD-1.pdf</a></li>
                             <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/TD-2.pdf" target="_blank"><i class="fas fa-file-pdf"></i> TD-2.pdf</a></li>
                             <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/TD-3.pdf" target="_blank"><i class="fas fa-file-pdf"></i> TD-3.pdf</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/QCM Grands systèmes de droit.docx" target="_blank"><i class="fas fa-file-word"></i> QCM Grands systèmes de droit.docx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/QCM Grands systèmes de droit.docx" target="_blank"><i class="fas fa-file-word"></i> QCM Grands systèmes de droit.docx</a></li>
                             <li class="list-group-item"><a href="documents/s1/Introduction à l’étude du droit/Domaines et sources du droit.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Domaines et sources du droit.pdf</a></li>
                         </ul>
                     </div>
@@ -149,17 +187,17 @@
             <div class="card">
                 <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#collapse2">
                     <i class="fas fa-chevron-down me-3"></i>
-                    📁  Méthodologie du travail universitaire
+                    Méthodologie du travail universitaire
                 </div>
                 <div id="collapse2" class="collapse" data-bs-parent="#semestre1">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Séance 1 & 2.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Séance 1 & 2.pdf</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Séance 1 & 2.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Séance 1 & 2.pdf</a></li>
                             <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercice pratique n°1.docx" target="_blank"><i class="fas fa-file-word"></i> Exercice pratique n°1.docx</a></li>
                             <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercice pratique n°2.docx" target="_blank"><i class="fas fa-file-word"></i> Exercice pratique n°2.docx</a></li>
                             <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercice pratique n°3.docx" target="_blank"><i class="fas fa-file-word"></i> Exercice pratique n°3.docx</a></li>
                             <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercice pratique n°4.docx" target="_blank"><i class="fas fa-file-word"></i> Exercice pratique n°4.docx</a></li>
-                            <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercices révision.docx" target="_blank"><i class="fas fa-file-word"></i> Exercices révision.docx</a></li>
+                            <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercices révision.docx" target="_blank"><i class="fas fa-file-word"></i> Exercices révision.docx</a></li>
                             <li class="list-group-item"><a href="documents/s1/Méthodologie de travail universitaire/Exercice - Types d'ouvrages.docx" target="_blank"><i class="fas fa-file-word"></i> Exercice - Types d'ouvrages.docx</a></li>
                         </ul>
                     </div>
@@ -169,7 +207,7 @@
             <div class="card">
                 <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#collapse3">
                     <i class="fas fa-chevron-down me-3"></i>
-                    📁  Éco-Gestion
+                    Éco-Gestion
                 </div>
                 <div id="collapse3" class="collapse" data-bs-parent="#semestre1">
                     <div class="card-body">
@@ -184,7 +222,7 @@
             <div class="card">
                 <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#collapse4">
                     <i class="fas fa-chevron-down me-3"></i>
-                    📁  Sociologie et philosophie du droit
+                    Sociologie et philosophie du droit
                 </div>
                 <div id="collapse4" class="collapse" data-bs-parent="#semestre1">
                     <div class="card-body">
@@ -199,7 +237,7 @@
             <div class="card">
                 <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#collapse5">
                     <i class="fas fa-chevron-down me-3"></i>
-                    📁  Science politique et droit constitutionnel
+                    Science politique et droit constitutionnel
                 </div>
                 <div id="collapse5" class="collapse" data-bs-parent="#semestre1">
                     <div class="card-body">
@@ -214,7 +252,7 @@
             <div class="card">
                 <div class="card-header collapsed" data-bs-toggle="collapse" data-bs-target="#collapse6">
                     <i class="fas fa-chevron-down me-3"></i>
-                    📁  Introduction au droit musulman
+                    Introduction au droit musulman
                 </div>
                 <div id="collapse6" class="collapse" data-bs-parent="#semestre1">
                     <div class="card-body">
